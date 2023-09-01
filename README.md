@@ -35,7 +35,7 @@ $> ./.build/debug/text-emboss-grpc-server
 2023-09-01T11:48:13-0700 info org.sfomuseum.text-emboss-grpc-server : [text_emboss_grpc_server] server started on port 1234
 ```
 
-And then (given [this image](https://github.com/sfomuseum/go-text-emboss/blob/main/fixtures/menu.jpg) running [this client]()):
+And then (given [this image](https://github.com/sfomuseum/go-text-emboss/blob/main/fixtures/menu.jpg) running [this client](https://github.com/sfomuseum/go-text-emboss#remote-grpc)):
 
 ```
 $> go run cmd/emboss/main.go -embosser-uri 'grpc://localhost:1234' ./fixtures/menu.jpg
