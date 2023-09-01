@@ -54,6 +54,12 @@ California Wines
 "america
 ```
 
+## Definitions
+
+### embosser.proto
+
+* [Sources/text-emboss-grpc-server/embosser.proto](Sources/text-emboss-grpc-server/embosser.proto)
+
 ## See also
 
 * https://github.com/sfomuseum/swift-text-emboss
