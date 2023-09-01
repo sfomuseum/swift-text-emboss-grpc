@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// package emboss;
+
+service Embosser {
+	rpc EmbossText(EmbossTextRequest) returns (EmbossTextResponse) {}
+}
+
+message EmbossTextRequest {
+	string Filename = 1;
+	bytes Body = 2;
+}
+
+message EmbossTextResponse {
+	string Filename = 1;
+	string Body = 2;
+}	
