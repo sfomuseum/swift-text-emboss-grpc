@@ -5,9 +5,9 @@ import AppKit
 import TextEmboss
 
 @available(macOS 10.15, *)
-final class TextEmbossProvider: EmbosserAsyncProvider {
+final class TextEmbosser: EmbosserAsyncProvider {
   let interceptors: EmbosserServerInterceptorFactoryProtocol? = nil
-    
+
     func embossText(request: EmbossTextRequest, context: GRPC.GRPCAsyncServerCallContext) async throws -> EmbossTextResponse {
     
         let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(),
@@ -25,6 +25,7 @@ final class TextEmbossProvider: EmbosserAsyncProvider {
             do {
                 try FileManager.default.removeItem(at: temporaryFileURL)
             } catch {
+                // To do: Use swift-log
                 print(error)
             }
         }
@@ -41,8 +42,8 @@ final class TextEmbossProvider: EmbosserAsyncProvider {
         let rsp = te.ProcessImage(image: cgImage)
          
          switch rsp {
-         case .failure(let error):
-             throw(error)
+         case .failure(_):
+             throw(Errors.processError)
          case .success(let txt):
              
              return EmbossTextResponse.with{

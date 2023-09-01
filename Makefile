@@ -1,5 +1,5 @@
 protoc:
-	protoc Sources/text-emboss-grpc-server/provider.proto \
+	protoc Sources/text-emboss-grpc-server/embosser.proto \
 		--proto_path=Sources/text-emboss-grpc-server/ \
 		--plugin=/opt/homebrew/bin/protoc-gen-swift \
 		--swift_opt=Visibility=Public \

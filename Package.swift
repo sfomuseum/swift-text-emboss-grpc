@@ -24,7 +24,7 @@ let package = Package(
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
-            exclude: ["provider.proto"]
+            exclude: ["embosser.proto"]
             // path: "Sources"
 	),
     ]

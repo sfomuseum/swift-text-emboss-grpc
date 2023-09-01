@@ -2,6 +2,7 @@ import ArgumentParser
 import GRPC
 import NIOCore
 import NIOPosix
+import Logging
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 @main
@@ -10,18 +11,22 @@ struct TextEmbossServer: AsyncParsableCommand {
   var port = 1234
 
   func run() async throws {
+
+      let logger = Logger(label: "org.sfomuseum.text-emboss-grpc-server")
+
     let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
+      
     defer {
       try! group.syncShutdownGracefully()
     }
 
     // Start the server and print its address once it has started.
     let server = try await Server.insecure(group: group)
-      .withServiceProviders([TextEmbossProvider()])
+      .withServiceProviders([TextEmbosser()])
       .bind(host: "localhost", port: self.port)
       .get()
 
-    print("server started on port \(server.channel.localAddress!.port!)")
+      logger.info("server started on port \(server.channel.localAddress!.port!)")
 
     // Wait on the server's `onClose` future to stop the program from exiting.
     try await server.onClose.get()
