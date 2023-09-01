@@ -1,6 +1,6 @@
 # swift-text-emboss-www-grpc
 
-A simple GRPC server wrapping the `sfomuseum/swift-text-emboss` package.
+A simple gRPC server wrapping the `sfomuseum/swift-text-emboss` package.
 
 ## Important
 
