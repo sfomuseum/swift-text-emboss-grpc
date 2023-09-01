@@ -23,7 +23,8 @@ let package = Package(
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
-            ]
+            ],
+            exclude: ["provider.proto"]
             // path: "Sources"
 	),
     ]

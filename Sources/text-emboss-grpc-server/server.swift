@@ -4,8 +4,8 @@ import NIOCore
 import NIOPosix
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-// @main
-struct HelloWorld: AsyncParsableCommand {
+@main
+struct TextEmbossServer: AsyncParsableCommand {
   @Option(help: "The port to listen on for new connections")
   var port = 1234
 
