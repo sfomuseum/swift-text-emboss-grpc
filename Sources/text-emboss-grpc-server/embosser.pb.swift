@@ -41,7 +41,7 @@ public struct EmbossTextResponse {
 
   public var filename: String = String()
 
-  public var body: String = String()
+  public var body: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -107,7 +107,7 @@ extension EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.filename) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.body) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.body) }()
       default: break
       }
     }
@@ -118,7 +118,7 @@ extension EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       try visitor.visitSingularStringField(value: self.filename, fieldNumber: 1)
     }
     if !self.body.isEmpty {
-      try visitor.visitSingularStringField(value: self.body, fieldNumber: 2)
+      try visitor.visitSingularBytesField(value: self.body, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }

@@ -48,7 +48,7 @@ final class TextEmbosser: EmbosserAsyncProvider {
              
              return EmbossTextResponse.with{
                  $0.filename = request.filename
-                 $0.body = txt
+                 $0.body = Data(txt.utf8)
              }
              
          }
