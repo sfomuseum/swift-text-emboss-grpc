@@ -7,13 +7,15 @@ extension TextEmbosser {
     
     func loadImage(url: URL) -> Result<CGImage, Error> {
                 
-        let im_data = try Data(contentsOf: url)
+        guard let im_data = try Data(contentsOf: url) else {
+            return .failure(Errors.invalidImage)
+        }
         
         guard let im =  UIImage(data: im_data) else {
             return .failure(Errors.invalidImage)
         }
         
-        return .success(im.ciImage)
+        return .success(im.cgImage)
     }
 }
 
