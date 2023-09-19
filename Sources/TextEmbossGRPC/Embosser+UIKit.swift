@@ -7,11 +7,16 @@ extension TextEmbosser {
     
     func loadImage(url: URL) throws -> CGImage? {
         
-        guard let im = UIImage(byReferencingFile:url.path) else {
+        var im: UIImage
+        
+        do {
+            let data = try Data(contentsOf: url)
+            im =  UIImage(data: imageData)
+        } catch {
             throw(Errors.invalidImage)
         }
-                        
-        guard let cgImage = im.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+        
+        guard let cgImage = im.cgImage() else {
             throw(Errors.cgImage)
         }
         
