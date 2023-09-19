@@ -10,17 +10,13 @@ extension TextEmbosser {
         var im: UIImage
         
         do {
-            let data = try Data(contentsOf: url)
-            im =  UIImage(data: imageData)
+            let im_data = try Data(contentsOf: url)
+            im =  UIImage(data: im_data)
         } catch {
             throw(Errors.invalidImage)
         }
         
-        guard let cgImage = im.cgImage() else {
-            throw(Errors.cgImage)
-        }
-        
-        return cgImage
+        return im.ciImage
     }
 }
 
