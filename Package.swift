@@ -27,12 +27,13 @@ let package = Package(
         .executableTarget(
             name: "text-emboss-grpc-server",
             dependencies: [
+                "TextEmbossGRPC",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "TextEmboss", package: "swift-text-emboss"),
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
-                // .product(name: "TextEmbossGRPC", package: "swift-text-emboss-grpc")
+                // .product(name: "TextEmbossGRPC")
             ]
             
             // path: "Sources"

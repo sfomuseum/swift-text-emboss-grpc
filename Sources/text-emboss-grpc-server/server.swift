@@ -23,7 +23,7 @@ struct TextEmbossServer: AsyncParsableCommand {
 
     // Start the server and print its address once it has started.
     let server = try await Server.insecure(group: group)
-          .withServiceProviders([TextEmbosser()])
+          .withServiceProviders([TextEmbossGRPC.TextEmbosser()])
       .bind(host: "localhost", port: self.port)
       .get()
 
