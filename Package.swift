@@ -22,6 +22,13 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "TextEmbossGRPC",
+            dependencies: [
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                .product(name: "TextEmboss", package: "swift-text-emboss"),
+                .product(name: "GRPC", package: "grpc-swift"),
+                .product(name: "Logging", package: "swift-log"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+            ],
             exclude: ["embosser.proto"]
         ),
         .executableTarget(
@@ -33,10 +40,8 @@ let package = Package(
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
-                // .product(name: "TextEmbossGRPC")
-            ]
-            
-            // path: "Sources"
+            ],
+            path: "Scripts"
 	)
     ]
 )

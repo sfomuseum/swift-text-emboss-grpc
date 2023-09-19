@@ -5,12 +5,9 @@ import AppKit
 import TextEmboss
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
-public final class TextEmbosser: EmbosserAsyncProvider {
+final class TextEmbosser: EmbosserAsyncProvider {
   let interceptors: EmbosserServerInterceptorFactoryProtocol? = nil
 
-    public init() {
-        
-    }
     
     func embossText(request: EmbossTextRequest, context: GRPC.GRPCAsyncServerCallContext) async throws -> EmbossTextResponse {
     
