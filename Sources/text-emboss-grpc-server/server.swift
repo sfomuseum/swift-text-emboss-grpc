@@ -3,6 +3,7 @@ import GRPC
 import NIOCore
 import NIOPosix
 import Logging
+import TextEmbossGRPC
 
 @available(macOS 10.15, *)
 @main
@@ -22,7 +23,7 @@ struct TextEmbossServer: AsyncParsableCommand {
 
     // Start the server and print its address once it has started.
     let server = try await Server.insecure(group: group)
-      .withServiceProviders([TextEmbosser()])
+          .withServiceProviders([TextEmbosser()])
       .bind(host: "localhost", port: self.port)
       .get()
 
