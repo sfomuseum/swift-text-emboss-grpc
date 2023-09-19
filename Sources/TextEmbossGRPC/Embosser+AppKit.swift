@@ -5,17 +5,17 @@ import Foundation
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 extension TextEmbosser {
     
-    func loadImage(url: URL) throws -> CGImage? {
+    func loadImage(url: URL) -> Result<CGImage, Error> {
         
         guard let im = NSImage(byReferencingFile:url.path) else {
-            throw(Errors.invalidImage)
+            return .failure(Errors.invalidImage)
         }
                         
         guard let cgImage = im.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
-            throw(Errors.cgImage)
+            return .failure(Errors.cgImage)
         }
         
-        return cgImage
+        return .success(cgImage)
     }
 }
 #endif

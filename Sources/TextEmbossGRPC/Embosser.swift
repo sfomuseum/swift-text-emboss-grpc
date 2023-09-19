@@ -2,8 +2,7 @@ import GRPC
 import NIOCore
 import Foundation
 import TextEmboss
-
-// import AppKit
+import Cocoa
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
@@ -31,9 +30,17 @@ final class TextEmbosser: EmbosserAsyncProvider {
             }
         }
          
-        guard let cgImage = try self.loadImage(url: temporaryFileURL) else {
-            throw(Errors.cgImage)
+        var cgImage: CGImage
+        
+        let im_rsp = self.loadImage(url: temporaryFileURL)
+        
+        switch im_rsp {
+        case .failure(let error):
+            throw(error)
+        case .success(let im):
+            cgImage = im
         }
+
         
         let te = TextEmboss()
         let rsp = te.ProcessImage(image: cgImage)
