@@ -2,7 +2,7 @@ import GRPC
 import NIOCore
 import Foundation
 import TextEmboss
-import Cocoa
+import CoreGraphics
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
