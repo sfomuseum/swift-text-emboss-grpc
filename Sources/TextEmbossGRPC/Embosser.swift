@@ -7,10 +7,9 @@ import TextEmboss
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
   let interceptors: EmbosserServerInterceptorFactoryProtocol? = nil
-
     
     func embossText(request: EmbossTextRequest, context: GRPC.GRPCAsyncServerCallContext) async throws -> EmbossTextResponse {
-    
+        
         let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(),
                                             isDirectory: true)
         
