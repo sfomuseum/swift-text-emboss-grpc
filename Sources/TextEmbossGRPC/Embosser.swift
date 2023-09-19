@@ -3,6 +3,7 @@ import NIOCore
 import Foundation
 import TextEmboss
 import CoreGraphics
+import CoreGraphicsImage
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
@@ -30,20 +31,19 @@ final class TextEmbosser: EmbosserAsyncProvider {
             }
         }
          
-        var cgImage: CGImage
-        
-        let im_rsp = self.loadImage(url: temporaryFileURL)
+        var cg_im: CGImage
+
+        let im_rsp = CoreGraphicsImage.LoadFromURL(url: temporaryFileURL)
         
         switch im_rsp {
         case .failure(let error):
             throw(error)
         case .success(let im):
-            cgImage = im
+            cg_im = im
         }
-
         
         let te = TextEmboss()
-        let rsp = te.ProcessImage(image: cgImage)
+        let rsp = te.ProcessImage(image: cg_im)
          
          switch rsp {
          case .failure(_):
