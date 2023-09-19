@@ -6,17 +6,14 @@ import Foundation
 extension TextEmbosser {
     
     func loadImage(url: URL) throws -> CGImage? {
+                
+        let im_data = try Data(contentsOf: url)
         
-        var im: UIImage
-        
-        do {
-            let im_data = try Data(contentsOf: url)
-            im =  UIImage(data: im_data)
-        } catch {
+        guard let im =  UIImage(data: im_data) else {
             throw(Errors.invalidImage)
         }
         
-        return im.ciImage
+        return im.ciImage?
     }
 }
 
