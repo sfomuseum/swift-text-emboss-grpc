@@ -15,7 +15,10 @@ extension TextEmbosser {
             return .failure(Errors.invalidImage)
         }
         
-        return .success(im.cgImage)
+        guard let cgImage = im.cgImage else {
+            return .failure(Errors.cgImage)
+        }
+        return .success(cgImage)
     }
 }
 
