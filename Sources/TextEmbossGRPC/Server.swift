@@ -30,6 +30,10 @@ public class GRPCServer {
       }
 
       // Start the server and print its address once it has started.
+        
+        // To do: Enable support for TLS certificates
+        // https://github.com/sfomuseum/swift-text-emboss-grpc/issues/1
+        
       let server = try await Server.insecure(group: group)
             .withServiceProviders([TextEmbosser()])
             .bind(host: self.host, port: self.port)
