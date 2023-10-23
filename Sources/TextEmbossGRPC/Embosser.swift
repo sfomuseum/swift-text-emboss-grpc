@@ -4,10 +4,24 @@ import Foundation
 import TextEmboss
 import CoreGraphics
 import CoreGraphicsImage
+import Logging
+import GRPCServerLogger
+
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
+public func NewTextEmbosser(logger: Logger) -> EmbosserAsyncProvider {
+    return TextEmbosser(logger: logger)
+}
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
   let interceptors: EmbosserServerInterceptorFactoryProtocol? = nil
+    
+    let logger: GRPCServerLogger
+    
+    init(logger: Logger) {
+        self.logger = GRPCServerLogger(logger:logger)
+        // self.interceptors = ImageEmbosserServerInterceptorFactory()
+    }
     
     func embossText(request: EmbossTextRequest, context: GRPC.GRPCAsyncServerCallContext) async throws -> EmbossTextResponse {
         
