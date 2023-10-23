@@ -14,16 +14,17 @@ public func NewTextEmbosser(logger: Logger) -> EmbosserAsyncProvider {
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class TextEmbosser: EmbosserAsyncProvider {
-  let interceptors: EmbosserServerInterceptorFactoryProtocol? = nil
-    
+    let interceptors: EmbosserServerInterceptorFactoryProtocol?
     let logger: GRPCServerLogger
     
     init(logger: Logger) {
         self.logger = GRPCServerLogger(logger:logger)
-        // self.interceptors = ImageEmbosserServerInterceptorFactory()
+        self.interceptors = TextEmbosserServerInterceptorFactory()
     }
     
     func embossText(request: EmbossTextRequest, context: GRPC.GRPCAsyncServerCallContext) async throws -> EmbossTextResponse {
+        
+        self.logger.setRemoteAddress(context: context)
         
         let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(),
                                             isDirectory: true)
@@ -40,8 +41,8 @@ final class TextEmbosser: EmbosserAsyncProvider {
             do {
                 try FileManager.default.removeItem(at: temporaryFileURL)
             } catch {
-                // To do: Use swift-log
-                print(error)
+
+                self.logger.error("Failed to remove \(temporaryFileURL), \(error)")
             }
         }
          
@@ -51,6 +52,7 @@ final class TextEmbosser: EmbosserAsyncProvider {
         
         switch im_rsp {
         case .failure(let error):
+            self.logger.error("Failed to load image from \(temporaryFileURL), \(error)")
             throw(error)
         case .success(let im):
             cg_im = im
@@ -60,9 +62,12 @@ final class TextEmbosser: EmbosserAsyncProvider {
         let rsp = te.ProcessImage(image: cg_im)
          
          switch rsp {
-         case .failure(_):
+         case .failure(let error):
+             self.logger.error("Failed to process image from \(temporaryFileURL), \(error)")
              throw(Errors.processError)
          case .success(let txt):
+             
+             self.logger.info("Processed text from image \(temporaryFileURL)")
              
              return EmbossTextResponse.with{
                  $0.filename = request.filename
