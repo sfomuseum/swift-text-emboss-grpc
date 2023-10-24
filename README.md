@@ -2,10 +2,6 @@
 
 A simple gRPC server wrapping the `sfomuseum/swift-text-emboss` package.
 
-## Important
-
-This package has only minimal error reporting and validation. It has no authentication or authorization hooks.
-
 ## Example
 
 Building the server.
@@ -20,25 +16,32 @@ Build complete! (0.76s)
 Server start-up options.
 
 ```
-$> ./.build/debug/text-emboss-grpc-server -h
-USAGE: text-emboss-server [--port <port>]
+$> .build/debug/text-emboss-grpc-server -h
+USAGE: text-emboss-server [--host <host>] [--port <port>] [--threads <threads>] [--log_file <log_file>] [--verbose <verbose>] [--tls_certificate <tls_certificate>] [--tls_key <tls_key>]
 
 OPTIONS:
-  --port <port>           The port to listen on for new connections (default: 1234)
+  --host <host>           The host name to listen for new connections (default: localhost)
+  --port <port>           The port to listen on for new connections (default: 8080)
+  --threads <threads>     The number of threads to use for the GRPC server (default: 1)
+  --log_file <log_file>   Write logs to specific log file (optional)
+  --verbose <verbose>     Enable verbose logging (default: false)
+  --tls_certificate <tls_certificate>
+                          The path to a TLS certificate to use for secure connections (optional)
+  --tls_key <tls_key>     The path to a TLS key to use for secure connections (optional)
   -h, --help              Show help information.
 ```
 
 Running the server.
 
 ```
-$> ./.build/debug/text-emboss-grpc-server 
-2023-09-01T11:48:13-0700 info org.sfomuseum.text-emboss-grpc-server : [text_emboss_grpc_server] server started on port 1234
+$> .build/debug/text-emboss-grpc-server
+2023-10-23T15:24:41.391-07:00 347180 [INFO] ["label": "org.sfomuseum.text-emboss-grpc-server", "source": "GRPCServer", "metadata": ""] GRPCServer/Server.swift#L.47 Run(_:) server started on port 8080
 ```
 
 And then (given [this image](https://github.com/sfomuseum/go-text-emboss/blob/main/fixtures/menu.jpg) running [this client](https://github.com/sfomuseum/go-text-emboss#remote-grpc)):
 
 ```
-$> go run cmd/emboss/main.go -embosser-uri 'grpc://localhost:1234' ./fixtures/menu.jpg
+$> go run cmd/emboss/main.go -embosser-uri 'grpc://localhost:8080' ./fixtures/menu.jpg
 Mood-lit Libations
 Champagne Powder Cocktail
 Champagne served with St. Germain
@@ -74,4 +77,5 @@ Under the hood this package uses the [Puppy](https://github.com/sushichop/Puppy)
 * https://github.com/sfomuseum/swift-text-emboss-cli
 * https://github.com/sfomuseum/swift-text-emboss-www
 * https://github.com/sfomuseum/go-text-emboss
+* https://github.com/sfomuseum/swift-grpc-server
 * https://github.com/grpc/grpc-swift

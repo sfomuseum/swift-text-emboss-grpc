@@ -11,8 +11,11 @@ struct TextEmbossServer: AsyncParsableCommand {
     var host = "localhost"
     
     @Option(help: "The port to listen on for new connections")
-    var port = 1234
+    var port = 8080
 
+    @Option(help: "The number of threads to use for the GRPC server")
+    var threads = 1
+    
     @Option(help: "Write logs to specific log file (optional)")
     var log_file: String?
     
@@ -27,9 +30,9 @@ struct TextEmbossServer: AsyncParsableCommand {
     
   func run() async throws {
 
-      let logger = Logger(label: "org.sfomuseum.text-emboss-grpc-server")
-      let threads = 1
-      
+      let log_label = "org.sfomuseum.text-emboss-grpc-server"
+      let logger = try NewLogger(log_label: log_label, log_file: log_file, verbose: verbose)
+
       let embosser = NewTextEmbosser(logger: logger)
 
       let server_opts = GRPCServerOptions(
