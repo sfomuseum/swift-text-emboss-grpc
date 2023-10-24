@@ -2,7 +2,6 @@ import ArgumentParser
 import Logging
 import TextEmbossGRPC
 import GRPCServer
-import Puppy
 
 @available(macOS 14.0, *)
 @main
