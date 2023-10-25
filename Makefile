@@ -9,10 +9,12 @@ protoc:
 		--grpc-swift_out=Sources/TextEmbossGRPC/
 
 debug:
-	./.build/debug/text-emboss-grpc-server
+	./.build/debug/text-emboss-grpc-server \
+		--logfile true
 
 debug-tls:
 	./.build/debug/text-emboss-grpc-server \
+		--logfile true \
 		--tls_certificate ./tls/server.crt \
 		--tls_key ./tls/server.key
 

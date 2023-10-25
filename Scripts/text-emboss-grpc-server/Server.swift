@@ -1,5 +1,5 @@
 import ArgumentParser
-import Logging
+import SFOMuseumLogger
 import TextEmbossGRPC
 import GRPCServer
 
@@ -16,8 +16,8 @@ struct TextEmbossServer: AsyncParsableCommand {
     @Option(help: "The number of threads to use for the GRPC server")
     var threads = 1
     
-    @Option(help: "Write logs to specific log file (optional)")
-    var log_file: String?
+    @Option(help: "Log events to system log files")
+    var logfile: Bool = false
     
     @Option(help: "Enable verbose logging")
     var verbose = false
@@ -31,7 +31,15 @@ struct TextEmbossServer: AsyncParsableCommand {
   func run() async throws {
 
       let log_label = "org.sfomuseum.text-emboss-grpc-server"
-      let logger = try NewLogger(log_label: log_label, log_file: log_file, verbose: verbose)
+      
+      let logger_opts = SFOMuseumLoggerOptions(
+          label: log_label,
+          console: true,
+          logfile: logfile,
+          verbose: verbose
+      )
+      
+      let logger = try NewSFOMuseumLogger(logger_opts)
 
       let embosser = NewTextEmbosser(logger: logger)
 
