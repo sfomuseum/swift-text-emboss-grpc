@@ -41,7 +41,6 @@ final class TextEmbosser: EmbosserAsyncProvider {
             do {
                 try FileManager.default.removeItem(at: temporaryFileURL)
             } catch {
-
                 self.logger.error("Failed to remove \(temporaryFileURL), \(error)")
             }
         }
