@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AssociatedBundleIdentifiers</key>
+	<string>org.sfomuseum.textemboss.grpc</string>
+	
+	<key>Label</key>
+	<string>org.sfomuseum.textemboss.grpc.daemon</string>
+
+	<key>RunAtLoad</key>
+	<true/>
+
+	<key>KeepAlive</key>
+	<true/>
+	
+	<key>MachServices</key>
+	<dict>
+		<key>org.sfomuseum.textemboss.grpc.daemon</key>
+		<true/>
+	</dict>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/textemboss-server</string>	  
+		<string>--host</string>
+		<string>0.0.0.0</string>
+		<string>--port</string>
+		<string>8080</string>
+	</array>
+
+	<key>UserName</key>
+	<string>sfomuseum</string>
+</dict>
+</plist>
