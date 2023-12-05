@@ -17,7 +17,8 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/sfomuseum/swift-coregraphics-image.git", branch: "main"),
-        .package(url: "https://github.com/sfomuseum/swift-grpc-server.git", from: "0.0.1"),
+        .package(url: "https://github.com/sfomuseum/swift-grpc-server.git", from: "0.0.2"),
+        // .package(name: "swift-grpc-server", path: "/usr/local/sfomuseum/swift-grpc-server"),
         .package(url: "https://github.com/sfomuseum/swift-sfomuseum-logger.git", from: "1.0.0")
     ],
     targets: [
@@ -32,7 +33,7 @@ let package = Package(
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
                 .product(name: "CoreGraphicsImage", package: "swift-coregraphics-image"),
-                .product(name: "GRPCServerLogger", package: "swift-grpc-server")
+                .product(name: "GRPCServerLogger", package: "swift-grpc-server"),
             ],
             exclude: ["embosser.proto"]
         ),
@@ -42,10 +43,6 @@ let package = Package(
                 "TextEmbossGRPC",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "TextEmboss", package: "swift-text-emboss"),
-                // .product(name: "GRPC", package: "grpc-swift"),
-                // .product(name: "Logging", package: "swift-log"),
-                // .product(name: "SwiftProtobuf", package: "swift-protobuf"),
-                // .product(name:"CoreGraphicsImage", package: "swift-coregraphics-image"),
                 .product(name: "SFOMuseumLogger", package: "swift-sfomuseum-logger"),
                 .product(name: "GRPCServer", package: "swift-grpc-server")
             ],

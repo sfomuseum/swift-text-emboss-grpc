@@ -16,18 +16,20 @@ Build complete! (0.76s)
 Server start-up options.
 
 ```
-$> .build/debug/text-emboss-grpc-server -h
-USAGE: text-emboss-server [--host <host>] [--port <port>] [--threads <threads>] [--log_file <log_file>] [--verbose <verbose>] [--tls_certificate <tls_certificate>] [--tls_key <tls_key>]
+$> ./.build/debug/text-emboss-grpc-server -h
+USAGE: text-emboss-server [--host <host>] [--port <port>] [--threads <threads>] [--logfile <logfile>] [--verbose <verbose>] [--tls_certificate <tls_certificate>] [--tls_key <tls_key>] [--max_receive_message_length <max_receive_message_length>]
 
 OPTIONS:
   --host <host>           The host name to listen for new connections (default: localhost)
   --port <port>           The port to listen on for new connections (default: 8080)
   --threads <threads>     The number of threads to use for the GRPC server (default: 1)
-  --log_file <log_file>   Write logs to specific log file (optional)
+  --logfile <logfile>     Log events to system log files (default: false)
   --verbose <verbose>     Enable verbose logging (default: false)
   --tls_certificate <tls_certificate>
                           The path to a TLS certificate to use for secure connections (optional)
   --tls_key <tls_key>     The path to a TLS key to use for secure connections (optional)
+  --max_receive_message_length <max_receive_message_length>
+                          Sets the maximum message size in bytes the server may receive. If 0 then the swift-grpc defaults will be used. (default: 0)
   -h, --help              Show help information.
 ```
 
