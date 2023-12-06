@@ -64,13 +64,19 @@ final class TextEmbosser: EmbosserAsyncProvider {
          case .failure(let error):
              self.logger.error("Failed to process image from \(temporaryFileURL), \(error)")
              throw(Errors.processError)
-         case .success(let txt):
+         case .success(let rsp):
              
              self.logger.info("Processed text from image \(temporaryFileURL)")
              
              return EmbossTextResponse.with{
+                 
+                 var pb_rsp = EmbossTextResult()
+                 pb_rsp.text = rsp.text
+                 pb_rsp.source = rsp.source
+                 pb_rsp.created = rsp.created
+                 
                  $0.filename = request.filename
-                 $0.body = Data(txt.utf8)
+                 $0.result = pb_rsp
              }
              
          }
