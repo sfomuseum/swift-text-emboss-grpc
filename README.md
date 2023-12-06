@@ -2,6 +2,10 @@
 
 A simple gRPC server wrapping the `sfomuseum/swift-text-emboss` package.
 
+## Background
+
+For background, please see the [Searching Text in Images on the Aviation Collection Website](https://millsfield.sfomuseum.org/blog/2023/09/14/image-text-search/) blog post.
+
 ## Example
 
 Building the server.
