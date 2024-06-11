@@ -11,13 +11,13 @@ let package = Package(
             targets: ["TextEmbossGRPC"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.2.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.4.0"),
         .package(url: "https://github.com/sfomuseum/swift-text-emboss", from: "0.0.3"),
-        .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.15.0"),
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+        .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.23.0"),
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.26.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
-        .package(url: "https://github.com/sfomuseum/swift-coregraphics-image.git", branch: "main"),
-        .package(url: "https://github.com/sfomuseum/swift-grpc-server.git", from: "0.0.2"),
+        .package(url: "https://github.com/sfomuseum/swift-coregraphics-image.git", from: "1.0.0"),
+        .package(url: "https://github.com/sfomuseum/swift-grpc-server.git", from: "0.0.3"),
         // .package(name: "swift-grpc-server", path: "/usr/local/sfomuseum/swift-grpc-server"),
         .package(url: "https://github.com/sfomuseum/swift-sfomuseum-logger.git", from: "1.0.0")
     ],
