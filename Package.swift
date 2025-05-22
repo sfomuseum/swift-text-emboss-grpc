@@ -1,4 +1,4 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -15,10 +15,11 @@ let package = Package(
         
         .package(url: "https://github.com/sfomuseum/swift-text-emboss", from: "0.0.3"),
         .package(url: "https://github.com/sfomuseum/swift-coregraphics-image.git", from: "1.0.0"),
+        .package(url: "https://github.com/sfomuseum/swift-sfomuseum-logger.git", from: "1.0.0")
     ],
     targets: [
         .executableTarget(
-            name: "image-emboss-grpc-server",
+            name: "text-emboss-grpc-server",
             dependencies: [
                 .product(name: "GRPCCore", package: "grpc-swift"),
                 .product(name: "GRPCNIOTransportHTTP2", package: "grpc-swift-nio-transport"),
@@ -26,7 +27,7 @@ let package = Package(
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "TextEmboss", package: "swift-text-emboss"),
-                .product(name: "CoreImageImage", package: "swift-coreimage-image"),
+                .product(name: "CoreGraphicsImage", package: "swift-coregraphics-image"),
                 .product(name: "SFOMuseumLogger", package: "swift-sfomuseum-logger"),
             ],
             plugins: [

@@ -7,8 +7,8 @@ import GRPCProtobuf
 import Synchronization
 
 import TextEmboss
-import CoreImage
-import CoreImageImage
+import CoreGraphics
+import CoreGraphicsImage
 import SFOMuseumLogger
 
 struct Serve: AsyncParsableCommand {
