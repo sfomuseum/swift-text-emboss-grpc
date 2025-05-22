@@ -68,8 +68,8 @@ struct Serve: AsyncParsableCommand {
             transportSecurity: transportSecurity,
         )
         
-        let service = ImageEmbosserService(logger: logger)
-        let server = GRPCServer(transport: transport, services: [service])
+        let service = TextEmbosserService(logger: logger)
+        let server = GRPCCore.GRPCServer(transport: transport, services: [service])
                 
         try await withThrowingDiscardingTaskGroup { group in
             // Why does this time out?
@@ -88,7 +88,7 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
         self.logger = logger
     }
     
-    func  embossText(request: ImageEmbosser_EmbossImageRequest, context: GRPCCore.ServerContext) async throws -> ImageEmbosser_EmbossImageResponse {
+    func  embossText(request: TextEmbosser_EmbossTextRequest, context: GRPCCore.ServerContext) async throws -> TextEmbosser_EmbossTextResponse {
         
         var metadata: Logger.Metadata
         metadata = [ "remote": "\(context.remotePeer)" ]
@@ -102,7 +102,7 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
             temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
         
         try request.body.write(to: temporaryFileURL,
-                       options: .atomic)
+                               options: .atomic)
         
         defer {
             do {
@@ -139,7 +139,7 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
                 "Failed to process image from \(temporaryFileURL), \(error)",
                 metadata: metadata
              )
-             throw(Errors.processError)
+             // throw(err)
          case .success(let rsp):
              
              self.logger.info(
