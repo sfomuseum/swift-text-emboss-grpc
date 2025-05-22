@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "TextEmbossGRPC",
+    name: "TextEmbosser",
     platforms: [.macOS("15.0")],
     dependencies: [
         .package(url: "https://github.com/grpc/grpc-swift.git", from: "2.2.1"),
@@ -31,7 +31,7 @@ let package = Package(
                 .product(name: "SFOMuseumLogger", package: "swift-sfomuseum-logger"),
             ],
             plugins: [
-              .plugin(name: "GRPCProtobufGenerator", package: "grpc-swift-protobuf")
+                // .plugin(name: "GRPCProtobufGenerator", package: "grpc-swift-protobuf")
             ],
             // path: "Scripts"
     )

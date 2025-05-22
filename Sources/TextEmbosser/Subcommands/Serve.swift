@@ -94,12 +94,12 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
         metadata = [ "remote": "\(context.remotePeer)" ]
         
         let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(),
-                                            isDirectory: true)
+                                        isDirectory: true)
         
         let temporaryFilename = ProcessInfo().globallyUniqueString
-
+        
         let temporaryFileURL =
-            temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
+        temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
         
         try request.body.write(to: temporaryFileURL,
                                options: .atomic)
@@ -114,9 +114,9 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
                 )
             }
         }
-         
+        
         var cg_im: CGImage
-
+        
         let im_rsp = CoreGraphicsImage.LoadFromURL(url: temporaryFileURL)
         
         switch im_rsp {
@@ -132,34 +132,34 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
         
         let te = TextEmboss()
         let rsp = te.ProcessImage(image: cg_im)
-         
-         switch rsp {
-         case .failure(let error):
-             self.logger.error(
+        
+        switch rsp {
+        case .failure(let error):
+            self.logger.error(
                 "Failed to process image from \(temporaryFileURL), \(error)",
                 metadata: metadata
-             )
-             // throw(err)
-         case .success(let rsp):
-             
-             self.logger.info(
+            )
+            throw(error)
+        case .success(let rsp):
+            
+            self.logger.info(
                 "Processed text from image \(temporaryFileURL)",
                 metadata: metadata
-             )
-             
-             return TextEmbosser.EmbossTextResponse.with{
-                 
-                 var pb_rsp = TextEmbosser.EmbossTextResult()
-                 pb_rsp.text = rsp.text
-                 pb_rsp.source = rsp.source
-                 pb_rsp.created = rsp.created
-                 
-                 $0.filename = request.filename
-                 $0.result = pb_rsp
-             }
-             
-         }
-         
+            )
+            
+            return TextEmbosser_EmbossTextResponse.with{
+                
+                var pb_rsp = TextEmbosser_EmbossTextResult()
+                pb_rsp.text = rsp.text
+                pb_rsp.source = rsp.source
+                pb_rsp.created = rsp.created
+                
+                $0.filename = request.filename
+                $0.result = pb_rsp
+            }
+            
+        }
+        
     }
 
 }
