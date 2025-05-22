@@ -1,8 +1,9 @@
 syntax = "proto3";
 
+package text_embosser
 option go_package = "github.com/sfomuseum/go-text-emboss/grpc";
 
-service Embosser {
+service TextEmbosser {
 	rpc EmbossText(EmbossTextRequest) returns (EmbossTextResponse) {}
 }
 
