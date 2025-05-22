@@ -12,6 +12,7 @@ message EmbossTextResult {
     string Source = 2;
     int64 Created = 3;
 }
+
 message EmbossTextRequest {
 	string Filename = 1;
 	bytes Body = 2;

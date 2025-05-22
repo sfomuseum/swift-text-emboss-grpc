@@ -4,7 +4,7 @@ import ArgumentParser
 struct RouteGuide: AsyncParsableCommand {
   static let configuration = CommandConfiguration(
     commandName: "text-embosser",
-    subcommands: [Serve.self, Client.self],
+    subcommands: [Serve.self],
     defaultSubcommand: Serve.self,
   )
 }

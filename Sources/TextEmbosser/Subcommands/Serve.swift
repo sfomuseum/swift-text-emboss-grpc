@@ -147,9 +147,9 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
                 metadata: metadata
              )
              
-             return EmbossTextResponse.with{
+             return TextEmbosser.EmbossTextResponse.with{
                  
-                 var pb_rsp = EmbossTextResult()
+                 var pb_rsp = TextEmbosser.EmbossTextResult()
                  pb_rsp.text = rsp.text
                  pb_rsp.source = rsp.source
                  pb_rsp.created = rsp.created
