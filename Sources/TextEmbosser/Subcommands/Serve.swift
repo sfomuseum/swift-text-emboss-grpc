@@ -50,8 +50,6 @@ struct Serve: AsyncParsableCommand {
                
         var transportSecurity = HTTP2ServerTransport.Posix.TransportSecurity.plaintext
         
-        // https://github.com/grpc/grpc-swift/issues/2219
-
         if tls_certificate != "" && tls_key != ""  {
                         
             let certSource:  TLSConfig.CertificateSource   = .file(path: tls_certificate, format: .pem)
@@ -66,11 +64,17 @@ struct Serve: AsyncParsableCommand {
         let transport = HTTP2ServerTransport.Posix(
             address: .ipv4(host: self.host, port: self.port),
             transportSecurity: transportSecurity,
+            config: .defaults { config in
+                if max_receive_message_length > 0 {
+                    config.rpc.maxRequestPayloadSize = max_receive_message_length
+                }
+              }
         )
-        
-        let service = TextEmbosserService(logger: logger)
-        let server = GRPCCore.GRPCServer(transport: transport, services: [service])
                 
+        let service = TextEmbosserService(logger: logger)
+        
+        let server = GRPCCore.GRPCServer(transport: transport, services: [service])
+        
         try await withThrowingDiscardingTaskGroup { group in
             // Why does this time out?
             // let address = try await transport.listeningAddress
