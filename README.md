@@ -15,9 +15,20 @@ $> swift build
 Building for debugging...
 [9/9] Emitting module text_emboss_grpc_server
 Build complete! (0.76s)
-```
 
-Server start-up options.
+$> ./.build/debug/text-emboss-grpc-server -h
+USAGE: text-embosser <subcommand>
+
+OPTIONS:
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  serve (default)         Starts a image embosser server.
+
+  See 'text-embosser help <subcommand>' for detailed help.
+```
+  
+### serve(r)
 
 ```
 $> ./.build/debug/text-emboss-grpc-server serve -h
@@ -68,7 +79,7 @@ California Wines
 
 ### embosser.proto
 
-* [Sources/Protos/TextEmbosser/text-emboss-grpc-server/embosser.proto](Sources/Protos/TextEmbosser/text-emboss-grpc-server/embosser.proto)
+* [Sources/Protos/text-embosser/text_embosser.proto](Sources/Protos/text-embosser/text_embosser.proto)
 
 ## See also
 
