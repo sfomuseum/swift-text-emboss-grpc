@@ -10,11 +10,11 @@ protoc:
 
 debug:
 	./.build/debug/text-emboss-grpc-server \
-		--logfile true
+		--verbose true
 
 debug-tls:
 	./.build/debug/text-emboss-grpc-server \
-		--logfile true \
+		--verbose true \
 		--tls_certificate ./tls/server.crt \
 		--tls_key ./tls/server.key
 

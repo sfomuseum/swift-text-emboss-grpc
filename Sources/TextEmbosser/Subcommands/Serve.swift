@@ -51,9 +51,9 @@ struct Serve: AsyncParsableCommand {
         var transportSecurity = HTTP2ServerTransport.Posix.TransportSecurity.plaintext
         
         // https://github.com/grpc/grpc-swift/issues/2219
-        
+
         if tls_certificate != "" && tls_key != ""  {
-            
+                        
             let certSource:  TLSConfig.CertificateSource   = .file(path: tls_certificate, format: .pem)
             let keySource:   TLSConfig.PrivateKeySource    = .file(path: tls_key, format: .pem)
             
@@ -62,7 +62,7 @@ struct Serve: AsyncParsableCommand {
                 privateKey: keySource,
             )
         }
-            
+                 
         let transport = HTTP2ServerTransport.Posix(
             address: .ipv4(host: self.host, port: self.port),
             transportSecurity: transportSecurity,
