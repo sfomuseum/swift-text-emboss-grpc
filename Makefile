@@ -1,20 +1,20 @@
 protoc:
-	protoc Sources/TextEmbossGRPC/embosser.proto \
-		--proto_path=Sources/TextEmbossGRPC/ \
+	protoc Sources/Protos/text_embosser/text_embosser.proto \
+		--proto_path=Sources/Protos/ \
 		--plugin=/opt/homebrew/bin/protoc-gen-swift \
 		--swift_opt=Visibility=Public \
-		--swift_out=Sources/TextEmbossGRPC/ \
+		--swift_out=Sources/TextEmbosser/ \
 		--plugin=/opt/homebrew/bin/protoc-gen-grpc-swift \
 		--grpc-swift_opt=Visibility=Public \
-		--grpc-swift_out=Sources/TextEmbossGRPC/
+		--grpc-swift_out=Sources/TextEmbosser/
 
 debug:
 	./.build/debug/text-emboss-grpc-server \
-		--logfile true
+		--verbose true
 
 debug-tls:
 	./.build/debug/text-emboss-grpc-server \
-		--logfile true \
+		--verbose true \
 		--tls_certificate ./tls/server.crt \
 		--tls_key ./tls/server.key
 
