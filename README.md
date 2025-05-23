@@ -87,5 +87,4 @@ California Wines
 * https://github.com/sfomuseum/swift-text-emboss-cli
 * https://github.com/sfomuseum/swift-text-emboss-www
 * https://github.com/sfomuseum/go-text-emboss
-* https://github.com/sfomuseum/swift-grpc-server
 * https://github.com/grpc/grpc-swift
