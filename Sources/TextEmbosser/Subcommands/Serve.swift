@@ -80,7 +80,7 @@ struct Serve: AsyncParsableCommand {
     }
 }
 
-struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
+struct TextEmbosserService: OrgSfomuseumTextEmbosser_TextEmbosser.SimpleServiceProtocol {
     
     var logger: Logger
     
@@ -88,7 +88,7 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
         self.logger = logger
     }
     
-    func  embossText(request: TextEmbosser_EmbossTextRequest, context: GRPCCore.ServerContext) async throws -> TextEmbosser_EmbossTextResponse {
+    func  embossText(request: OrgSfomuseumTextEmbosser_EmbossTextRequest, context: GRPCCore.ServerContext) async throws -> OrgSfomuseumTextEmbosser_EmbossTextResponse {
         
         var metadata: Logger.Metadata
         metadata = [ "remote": "\(context.remotePeer)" ]
@@ -147,9 +147,9 @@ struct TextEmbosserService: TextEmbosser_TextEmbosser.SimpleServiceProtocol {
                 metadata: metadata
             )
             
-            return TextEmbosser_EmbossTextResponse.with{
+            return OrgSfomuseumTextEmbosser_EmbossTextResponse.with{
                 
-                var pb_rsp = TextEmbosser_EmbossTextResult()
+                var pb_rsp = OrgSfomuseumTextEmbosser_EmbossTextResult()
                 pb_rsp.text = rsp.text
                 pb_rsp.source = rsp.source
                 pb_rsp.created = rsp.created

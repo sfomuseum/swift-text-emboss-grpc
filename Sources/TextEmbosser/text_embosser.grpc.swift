@@ -10,27 +10,27 @@
 import GRPCCore
 import GRPCProtobuf
 
-// MARK: - text_embosser.TextEmbosser
+// MARK: - org_sfomuseum_text_embosser.TextEmbosser
 
-/// Namespace containing generated types for the "text_embosser.TextEmbosser" service.
-public enum TextEmbosser_TextEmbosser {
-    /// Service descriptor for the "text_embosser.TextEmbosser" service.
-    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "text_embosser.TextEmbosser")
+/// Namespace containing generated types for the "org_sfomuseum_text_embosser.TextEmbosser" service.
+public enum OrgSfomuseumTextEmbosser_TextEmbosser {
+    /// Service descriptor for the "org_sfomuseum_text_embosser.TextEmbosser" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "org_sfomuseum_text_embosser.TextEmbosser")
     /// Namespace for method metadata.
     public enum Method {
         /// Namespace for "EmbossText" metadata.
         public enum EmbossText {
             /// Request type for "EmbossText".
-            public typealias Input = TextEmbosser_EmbossTextRequest
+            public typealias Input = OrgSfomuseumTextEmbosser_EmbossTextRequest
             /// Response type for "EmbossText".
-            public typealias Output = TextEmbosser_EmbossTextResponse
+            public typealias Output = OrgSfomuseumTextEmbosser_EmbossTextResponse
             /// Descriptor for "EmbossText".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "text_embosser.TextEmbosser"),
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "org_sfomuseum_text_embosser.TextEmbosser"),
                 method: "EmbossText"
             )
         }
-        /// Descriptors for all methods in the "text_embosser.TextEmbosser" service.
+        /// Descriptors for all methods in the "org_sfomuseum_text_embosser.TextEmbosser" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             EmbossText.descriptor
         ]
@@ -38,14 +38,14 @@ public enum TextEmbosser_TextEmbosser {
 }
 
 extension GRPCCore.ServiceDescriptor {
-    /// Service descriptor for the "text_embosser.TextEmbosser" service.
-    public static let textEmbosser_TextEmbosser = GRPCCore.ServiceDescriptor(fullyQualifiedService: "text_embosser.TextEmbosser")
+    /// Service descriptor for the "org_sfomuseum_text_embosser.TextEmbosser" service.
+    public static let orgSfomuseumTextEmbosser_TextEmbosser = GRPCCore.ServiceDescriptor(fullyQualifiedService: "org_sfomuseum_text_embosser.TextEmbosser")
 }
 
-// MARK: text_embosser.TextEmbosser (server)
+// MARK: org_sfomuseum_text_embosser.TextEmbosser (server)
 
-extension TextEmbosser_TextEmbosser {
-    /// Streaming variant of the service protocol for the "text_embosser.TextEmbosser" service.
+extension OrgSfomuseumTextEmbosser_TextEmbosser {
+    /// Streaming variant of the service protocol for the "org_sfomuseum_text_embosser.TextEmbosser" service.
     ///
     /// This protocol is the lowest-level of the service protocols generated for this service
     /// giving you the most flexibility over the implementation of your service. This comes at
@@ -59,70 +59,70 @@ extension TextEmbosser_TextEmbosser {
         /// Handle the "EmbossText" method.
         ///
         /// - Parameters:
-        ///   - request: A streaming request of `TextEmbosser_EmbossTextRequest` messages.
+        ///   - request: A streaming request of `OrgSfomuseumTextEmbosser_EmbossTextRequest` messages.
         ///   - context: Context providing information about the RPC.
         /// - Throws: Any error which occurred during the processing of the request. Thrown errors
         ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
         ///     to an internal error.
-        /// - Returns: A streaming response of `TextEmbosser_EmbossTextResponse` messages.
+        /// - Returns: A streaming response of `OrgSfomuseumTextEmbosser_EmbossTextResponse` messages.
         func embossText(
-            request: GRPCCore.StreamingServerRequest<TextEmbosser_EmbossTextRequest>,
+            request: GRPCCore.StreamingServerRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
             context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<TextEmbosser_EmbossTextResponse>
+        ) async throws -> GRPCCore.StreamingServerResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>
     }
 
-    /// Service protocol for the "text_embosser.TextEmbosser" service.
+    /// Service protocol for the "org_sfomuseum_text_embosser.TextEmbosser" service.
     ///
     /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
     /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
     /// trailing response metadata. If you don't need these then consider using
     /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
     /// use ``StreamingServiceProtocol``.
-    public protocol ServiceProtocol: TextEmbosser_TextEmbosser.StreamingServiceProtocol {
+    public protocol ServiceProtocol: OrgSfomuseumTextEmbosser_TextEmbosser.StreamingServiceProtocol {
         /// Handle the "EmbossText" method.
         ///
         /// - Parameters:
-        ///   - request: A request containing a single `TextEmbosser_EmbossTextRequest` message.
+        ///   - request: A request containing a single `OrgSfomuseumTextEmbosser_EmbossTextRequest` message.
         ///   - context: Context providing information about the RPC.
         /// - Throws: Any error which occurred during the processing of the request. Thrown errors
         ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
         ///     to an internal error.
-        /// - Returns: A response containing a single `TextEmbosser_EmbossTextResponse` message.
+        /// - Returns: A response containing a single `OrgSfomuseumTextEmbosser_EmbossTextResponse` message.
         func embossText(
-            request: GRPCCore.ServerRequest<TextEmbosser_EmbossTextRequest>,
+            request: GRPCCore.ServerRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
             context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<TextEmbosser_EmbossTextResponse>
+        ) async throws -> GRPCCore.ServerResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>
     }
 
-    /// Simple service protocol for the "text_embosser.TextEmbosser" service.
+    /// Simple service protocol for the "org_sfomuseum_text_embosser.TextEmbosser" service.
     ///
     /// This is the highest level protocol for the service. The API is the easiest to use but
     /// doesn't provide access to request or response metadata. If you need access to these
     /// then use ``ServiceProtocol`` instead.
-    public protocol SimpleServiceProtocol: TextEmbosser_TextEmbosser.ServiceProtocol {
+    public protocol SimpleServiceProtocol: OrgSfomuseumTextEmbosser_TextEmbosser.ServiceProtocol {
         /// Handle the "EmbossText" method.
         ///
         /// - Parameters:
-        ///   - request: A `TextEmbosser_EmbossTextRequest` message.
+        ///   - request: A `OrgSfomuseumTextEmbosser_EmbossTextRequest` message.
         ///   - context: Context providing information about the RPC.
         /// - Throws: Any error which occurred during the processing of the request. Thrown errors
         ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
         ///     to an internal error.
-        /// - Returns: A `TextEmbosser_EmbossTextResponse` to respond with.
+        /// - Returns: A `OrgSfomuseumTextEmbosser_EmbossTextResponse` to respond with.
         func embossText(
-            request: TextEmbosser_EmbossTextRequest,
+            request: OrgSfomuseumTextEmbosser_EmbossTextRequest,
             context: GRPCCore.ServerContext
-        ) async throws -> TextEmbosser_EmbossTextResponse
+        ) async throws -> OrgSfomuseumTextEmbosser_EmbossTextResponse
     }
 }
 
 // Default implementation of 'registerMethods(with:)'.
-extension TextEmbosser_TextEmbosser.StreamingServiceProtocol {
+extension OrgSfomuseumTextEmbosser_TextEmbosser.StreamingServiceProtocol {
     public func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
         router.registerHandler(
-            forMethod: TextEmbosser_TextEmbosser.Method.EmbossText.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<TextEmbosser_EmbossTextRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<TextEmbosser_EmbossTextResponse>(),
+            forMethod: OrgSfomuseumTextEmbosser_TextEmbosser.Method.EmbossText.descriptor,
+            deserializer: GRPCProtobuf.ProtobufDeserializer<OrgSfomuseumTextEmbosser_EmbossTextRequest>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<OrgSfomuseumTextEmbosser_EmbossTextResponse>(),
             handler: { request, context in
                 try await self.embossText(
                     request: request,
@@ -134,11 +134,11 @@ extension TextEmbosser_TextEmbosser.StreamingServiceProtocol {
 }
 
 // Default implementation of streaming methods from 'StreamingServiceProtocol'.
-extension TextEmbosser_TextEmbosser.ServiceProtocol {
+extension OrgSfomuseumTextEmbosser_TextEmbosser.ServiceProtocol {
     public func embossText(
-        request: GRPCCore.StreamingServerRequest<TextEmbosser_EmbossTextRequest>,
+        request: GRPCCore.StreamingServerRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
         context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<TextEmbosser_EmbossTextResponse> {
+    ) async throws -> GRPCCore.StreamingServerResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse> {
         let response = try await self.embossText(
             request: GRPCCore.ServerRequest(stream: request),
             context: context
@@ -148,12 +148,12 @@ extension TextEmbosser_TextEmbosser.ServiceProtocol {
 }
 
 // Default implementation of methods from 'ServiceProtocol'.
-extension TextEmbosser_TextEmbosser.SimpleServiceProtocol {
+extension OrgSfomuseumTextEmbosser_TextEmbosser.SimpleServiceProtocol {
     public func embossText(
-        request: GRPCCore.ServerRequest<TextEmbosser_EmbossTextRequest>,
+        request: GRPCCore.ServerRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
         context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<TextEmbosser_EmbossTextResponse> {
-        return GRPCCore.ServerResponse<TextEmbosser_EmbossTextResponse>(
+    ) async throws -> GRPCCore.ServerResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse> {
+        return GRPCCore.ServerResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>(
             message: try await self.embossText(
                 request: request.message,
                 context: context
@@ -163,10 +163,10 @@ extension TextEmbosser_TextEmbosser.SimpleServiceProtocol {
     }
 }
 
-// MARK: text_embosser.TextEmbosser (client)
+// MARK: org_sfomuseum_text_embosser.TextEmbosser (client)
 
-extension TextEmbosser_TextEmbosser {
-    /// Generated client protocol for the "text_embosser.TextEmbosser" service.
+extension OrgSfomuseumTextEmbosser_TextEmbosser {
+    /// Generated client protocol for the "org_sfomuseum_text_embosser.TextEmbosser" service.
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
@@ -174,24 +174,24 @@ extension TextEmbosser_TextEmbosser {
         /// Call the "EmbossText" method.
         ///
         /// - Parameters:
-        ///   - request: A request containing a single `TextEmbosser_EmbossTextRequest` message.
-        ///   - serializer: A serializer for `TextEmbosser_EmbossTextRequest` messages.
-        ///   - deserializer: A deserializer for `TextEmbosser_EmbossTextResponse` messages.
+        ///   - request: A request containing a single `OrgSfomuseumTextEmbosser_EmbossTextRequest` message.
+        ///   - serializer: A serializer for `OrgSfomuseumTextEmbosser_EmbossTextRequest` messages.
+        ///   - deserializer: A deserializer for `OrgSfomuseumTextEmbosser_EmbossTextResponse` messages.
         ///   - options: Options to apply to this RPC.
         ///   - handleResponse: A closure which handles the response, the result of which is
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
         func embossText<Result>(
-            request: GRPCCore.ClientRequest<TextEmbosser_EmbossTextRequest>,
-            serializer: some GRPCCore.MessageSerializer<TextEmbosser_EmbossTextRequest>,
-            deserializer: some GRPCCore.MessageDeserializer<TextEmbosser_EmbossTextResponse>,
+            request: GRPCCore.ClientRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
+            serializer: some GRPCCore.MessageSerializer<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<OrgSfomuseumTextEmbosser_EmbossTextResponse>,
             options: GRPCCore.CallOptions,
-            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<TextEmbosser_EmbossTextResponse>) async throws -> Result
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
-    /// Generated client for the "text_embosser.TextEmbosser" service.
+    /// Generated client for the "org_sfomuseum_text_embosser.TextEmbosser" service.
     ///
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
@@ -210,26 +210,26 @@ extension TextEmbosser_TextEmbosser {
         /// Call the "EmbossText" method.
         ///
         /// - Parameters:
-        ///   - request: A request containing a single `TextEmbosser_EmbossTextRequest` message.
-        ///   - serializer: A serializer for `TextEmbosser_EmbossTextRequest` messages.
-        ///   - deserializer: A deserializer for `TextEmbosser_EmbossTextResponse` messages.
+        ///   - request: A request containing a single `OrgSfomuseumTextEmbosser_EmbossTextRequest` message.
+        ///   - serializer: A serializer for `OrgSfomuseumTextEmbosser_EmbossTextRequest` messages.
+        ///   - deserializer: A deserializer for `OrgSfomuseumTextEmbosser_EmbossTextResponse` messages.
         ///   - options: Options to apply to this RPC.
         ///   - handleResponse: A closure which handles the response, the result of which is
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
         public func embossText<Result>(
-            request: GRPCCore.ClientRequest<TextEmbosser_EmbossTextRequest>,
-            serializer: some GRPCCore.MessageSerializer<TextEmbosser_EmbossTextRequest>,
-            deserializer: some GRPCCore.MessageDeserializer<TextEmbosser_EmbossTextResponse>,
+            request: GRPCCore.ClientRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
+            serializer: some GRPCCore.MessageSerializer<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<OrgSfomuseumTextEmbosser_EmbossTextResponse>,
             options: GRPCCore.CallOptions = .defaults,
-            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<TextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
                 try response.message
             }
         ) async throws -> Result where Result: Sendable {
             try await self.client.unary(
                 request: request,
-                descriptor: TextEmbosser_TextEmbosser.Method.EmbossText.descriptor,
+                descriptor: OrgSfomuseumTextEmbosser_TextEmbosser.Method.EmbossText.descriptor,
                 serializer: serializer,
                 deserializer: deserializer,
                 options: options,
@@ -240,27 +240,27 @@ extension TextEmbosser_TextEmbosser {
 }
 
 // Helpers providing default arguments to 'ClientProtocol' methods.
-extension TextEmbosser_TextEmbosser.ClientProtocol {
+extension OrgSfomuseumTextEmbosser_TextEmbosser.ClientProtocol {
     /// Call the "EmbossText" method.
     ///
     /// - Parameters:
-    ///   - request: A request containing a single `TextEmbosser_EmbossTextRequest` message.
+    ///   - request: A request containing a single `OrgSfomuseumTextEmbosser_EmbossTextRequest` message.
     ///   - options: Options to apply to this RPC.
     ///   - handleResponse: A closure which handles the response, the result of which is
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
     public func embossText<Result>(
-        request: GRPCCore.ClientRequest<TextEmbosser_EmbossTextRequest>,
+        request: GRPCCore.ClientRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<TextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
             try response.message
         }
     ) async throws -> Result where Result: Sendable {
         try await self.embossText(
             request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<TextEmbosser_EmbossTextRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<TextEmbosser_EmbossTextResponse>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<OrgSfomuseumTextEmbosser_EmbossTextRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<OrgSfomuseumTextEmbosser_EmbossTextResponse>(),
             options: options,
             onResponse: handleResponse
         )
@@ -268,7 +268,7 @@ extension TextEmbosser_TextEmbosser.ClientProtocol {
 }
 
 // Helpers providing sugared APIs for 'ClientProtocol' methods.
-extension TextEmbosser_TextEmbosser.ClientProtocol {
+extension OrgSfomuseumTextEmbosser_TextEmbosser.ClientProtocol {
     /// Call the "EmbossText" method.
     ///
     /// - Parameters:
@@ -280,14 +280,14 @@ extension TextEmbosser_TextEmbosser.ClientProtocol {
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
     public func embossText<Result>(
-        _ message: TextEmbosser_EmbossTextRequest,
+        _ message: OrgSfomuseumTextEmbosser_EmbossTextRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<TextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<OrgSfomuseumTextEmbosser_EmbossTextResponse>) async throws -> Result = { response in
             try response.message
         }
     ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<TextEmbosser_EmbossTextRequest>(
+        let request = GRPCCore.ClientRequest<OrgSfomuseumTextEmbosser_EmbossTextRequest>(
             message: message,
             metadata: metadata
         )

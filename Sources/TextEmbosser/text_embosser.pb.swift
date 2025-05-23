@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct TextEmbosser_EmbossTextResult: Sendable {
+public struct OrgSfomuseumTextEmbosser_EmbossTextResult: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -37,7 +37,7 @@ public struct TextEmbosser_EmbossTextResult: Sendable {
   public init() {}
 }
 
-public struct TextEmbosser_EmbossTextRequest: @unchecked Sendable {
+public struct OrgSfomuseumTextEmbosser_EmbossTextRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,15 +51,15 @@ public struct TextEmbosser_EmbossTextRequest: @unchecked Sendable {
   public init() {}
 }
 
-public struct TextEmbosser_EmbossTextResponse: Sendable {
+public struct OrgSfomuseumTextEmbosser_EmbossTextResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var filename: String = String()
 
-  public var result: TextEmbosser_EmbossTextResult {
-    get {return _result ?? TextEmbosser_EmbossTextResult()}
+  public var result: OrgSfomuseumTextEmbosser_EmbossTextResult {
+    get {return _result ?? OrgSfomuseumTextEmbosser_EmbossTextResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
@@ -71,14 +71,14 @@ public struct TextEmbosser_EmbossTextResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _result: TextEmbosser_EmbossTextResult? = nil
+  fileprivate var _result: OrgSfomuseumTextEmbosser_EmbossTextResult? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "text_embosser"
+fileprivate let _protobuf_package = "org_sfomuseum_text_embosser"
 
-extension TextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension OrgSfomuseumTextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextResult"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Text"),
@@ -113,7 +113,7 @@ extension TextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: TextEmbosser_EmbossTextResult, rhs: TextEmbosser_EmbossTextResult) -> Bool {
+  public static func ==(lhs: OrgSfomuseumTextEmbosser_EmbossTextResult, rhs: OrgSfomuseumTextEmbosser_EmbossTextResult) -> Bool {
     if lhs.text != rhs.text {return false}
     if lhs.source != rhs.source {return false}
     if lhs.created != rhs.created {return false}
@@ -122,7 +122,7 @@ extension TextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension TextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension OrgSfomuseumTextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Filename"),
@@ -152,7 +152,7 @@ extension TextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: TextEmbosser_EmbossTextRequest, rhs: TextEmbosser_EmbossTextRequest) -> Bool {
+  public static func ==(lhs: OrgSfomuseumTextEmbosser_EmbossTextRequest, rhs: OrgSfomuseumTextEmbosser_EmbossTextRequest) -> Bool {
     if lhs.filename != rhs.filename {return false}
     if lhs.body != rhs.body {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -160,7 +160,7 @@ extension TextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension TextEmbosser_EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension OrgSfomuseumTextEmbosser_EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Filename"),
@@ -194,7 +194,7 @@ extension TextEmbosser_EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: TextEmbosser_EmbossTextResponse, rhs: TextEmbosser_EmbossTextResponse) -> Bool {
+  public static func ==(lhs: OrgSfomuseumTextEmbosser_EmbossTextResponse, rhs: OrgSfomuseumTextEmbosser_EmbossTextResponse) -> Bool {
     if lhs.filename != rhs.filename {return false}
     if lhs._result != rhs._result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
