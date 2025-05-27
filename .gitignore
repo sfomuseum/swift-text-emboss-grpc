@@ -10,3 +10,5 @@ DerivedData/
 *~
 *.pkg
 build.sh
+dist
+work
