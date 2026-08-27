@@ -10,9 +10,9 @@ let package = Package(
         .iOS("18.0")
     ],
     dependencies: [
-        .package(url: "https://github.com/grpc/grpc-swift-2.git", from: "2.0.0"),
-        .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "2.0.0"),
-        .package(url: "https://github.com/grpc/grpc-swift-protobuf.git", from: "2.0.0"),
+        .package(url: "https://github.com/grpc/grpc-swift-2.git", from: "2.4.2"),
+        .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "2.9.2"),
+        .package(url: "https://github.com/grpc/grpc-swift-protobuf.git", from: "2.4.1"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.8.2"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.15.0"),
         .package(url: "https://github.com/sfomuseum/swift-text-emboss", from: "0.0.3"),
