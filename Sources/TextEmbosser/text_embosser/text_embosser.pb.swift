@@ -8,7 +8,11 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -16,12 +20,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct OrgSfomuseumTextEmbosser_EmbossTextResult: Sendable {
+public nonisolated struct OrgSfomuseumTextEmbosser_EmbossTextResult: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -37,7 +41,7 @@ public struct OrgSfomuseumTextEmbosser_EmbossTextResult: Sendable {
   public init() {}
 }
 
-public struct OrgSfomuseumTextEmbosser_EmbossTextRequest: @unchecked Sendable {
+public nonisolated struct OrgSfomuseumTextEmbosser_EmbossTextRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,7 +55,7 @@ public struct OrgSfomuseumTextEmbosser_EmbossTextRequest: @unchecked Sendable {
   public init() {}
 }
 
-public struct OrgSfomuseumTextEmbosser_EmbossTextResponse: Sendable {
+public nonisolated struct OrgSfomuseumTextEmbosser_EmbossTextResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -59,11 +63,11 @@ public struct OrgSfomuseumTextEmbosser_EmbossTextResponse: Sendable {
   public var filename: String = String()
 
   public var result: OrgSfomuseumTextEmbosser_EmbossTextResult {
-    get {return _result ?? OrgSfomuseumTextEmbosser_EmbossTextResult()}
+    get {_result ?? OrgSfomuseumTextEmbosser_EmbossTextResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
-  public var hasResult: Bool {return self._result != nil}
+  public var hasResult: Bool {self._result != nil}
   /// Clears the value of `result`. Subsequent reads from it will return its default value.
   public mutating func clearResult() {self._result = nil}
 
@@ -76,15 +80,11 @@ public struct OrgSfomuseumTextEmbosser_EmbossTextResponse: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "org_sfomuseum_text_embosser"
+fileprivate nonisolated let _protobuf_package = "org_sfomuseum_text_embosser"
 
-extension OrgSfomuseumTextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension OrgSfomuseumTextEmbosser_EmbossTextResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextResult"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Text"),
-    2: .same(proto: "Source"),
-    3: .same(proto: "Created"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Text\0\u{1}Source\0\u{1}Created\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -122,12 +122,9 @@ extension OrgSfomuseumTextEmbosser_EmbossTextResult: SwiftProtobuf.Message, Swif
   }
 }
 
-extension OrgSfomuseumTextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension OrgSfomuseumTextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Filename"),
-    2: .same(proto: "Body"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Filename\0\u{1}Body\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -160,12 +157,9 @@ extension OrgSfomuseumTextEmbosser_EmbossTextRequest: SwiftProtobuf.Message, Swi
   }
 }
 
-extension OrgSfomuseumTextEmbosser_EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension OrgSfomuseumTextEmbosser_EmbossTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EmbossTextResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Filename"),
-    2: .same(proto: "Result"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Filename\0\u{1}Result\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
